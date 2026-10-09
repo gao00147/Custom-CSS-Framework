@@ -16,7 +16,7 @@ Open `index.html` to see every element and utility in action.
 ## Folder structure
 
 ```
-ember-css/
+Custom-CSS-Framework/
 ├── dist/
 │   ├── ember.css          ← compiled framework (use this)
 │   └── ember.min.css      ← minified version
@@ -47,7 +47,7 @@ ember-css/
 
 | Feature | Where |
 |---|---|
-| Partials & modules (`@use`, `@forward`) | `ember.scss` loads 14 partials from 4 folders |
+| Partials & modules (`@use`, `@forward`) | `ember.scss` loads 13 partials from 4 folders |
 | Variables with `!default` | `abstracts/_variables.scss` |
 | Maps + `@each` loops | color, font size, font weight, spacing and heading utilities |
 | `@if` / `@else` control flow | `utilities/_spacing.scss` (skips `p-auto`, handles single vs. double sides) |
@@ -65,7 +65,7 @@ ember-css/
 
 1. Download or clone this repository:
    ```bash
-   git clone https://github.com/<your-username>/ember-css.git
+   git clone https://github.com/gao00147/Custom-CSS-Framework.git
    ```
 2. Copy `dist/ember.css` (or `dist/ember.min.css`) into your project.
 3. Link it in the `<head>` of your HTML:
