@@ -1,0 +1,27 @@
+// ==========================================================================
+// Ember CSS — CSS custom properties
+// Sass variables are turned into CSS variables here, so the theme can ALSO
+// be customized at runtime without recompiling:  :root { --em-primary: teal; }
+// ==========================================================================
+@use "variables" as *;
+
+:root {
+  // Theme colors, generated from the $theme-colors map
+  @each $name, $value in $theme-colors {
+    --em-#{$name}: #{$value};
+  }
+  --em-border-color: #{$color-border};
+
+  // Typography
+  --em-font-base: #{$font-family-base};
+  --em-font-heading: #{$font-family-heading};
+  --em-font-mono: #{$font-family-mono};
+  --em-font-size: #{$font-size-base};
+  --em-line-height: #{$line-height-base};
+
+  // Shape & motion
+  --em-spacer: #{$spacer};
+  --em-border-width: #{$border-width};
+  --em-radius: #{$border-radius};
+  --em-transition: #{$transition};
+}

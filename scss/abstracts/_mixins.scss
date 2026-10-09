@@ -1,0 +1,29 @@
+// ==========================================================================
+// Ember CSS — Mixins (SassScript)
+// ==========================================================================
+@use "functions" as *;
+
+// Accessible focus ring used by buttons and form fields
+@mixin focus-ring($color: var(--em-primary), $strength: 35%) {
+  outline: none;
+  box-shadow: 0 0 0 3px fade($color, $strength);
+}
+
+// Colors a button and its hover state from one color
+@mixin button-variant($color) {
+  --btn-color: #{$color};
+  border-color: var(--btn-color);
+  background-color: var(--btn-color);
+
+  &:hover {
+    border-color: shade(var(--btn-color));
+    background-color: shade(var(--btn-color));
+  }
+}
+
+// Small uppercase label style (h5, h6, table headers)
+@mixin eyebrow($size, $spacing: 0.06em) {
+  font-size: $size;
+  text-transform: uppercase;
+  letter-spacing: $spacing;
+}

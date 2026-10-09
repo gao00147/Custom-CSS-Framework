@@ -1,0 +1,35 @@
+// ==========================================================================
+// Ember CSS — Reset & page defaults
+// ==========================================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--em-font-base);
+  font-size: var(--em-font-size);
+  line-height: var(--em-line-height);
+  color: var(--em-dark);
+  background-color: var(--em-light);
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+::selection {
+  color: var(--em-white);
+  background-color: var(--em-primary);
+}

@@ -1,0 +1,28 @@
+// ==========================================================================
+// Ember CSS — Typography utilities
+//   .fs-{size}   .fw-{weight}   .text-{align}   .text-uppercase ...
+// ==========================================================================
+@use "../abstracts/variables" as *;
+
+@each $name, $size in $font-sizes {
+  .fs-#{$name} {
+    font-size: $size !important;
+  }
+}
+
+@each $name, $weight in $font-weights {
+  .fw-#{$name} {
+    font-weight: $weight !important;
+  }
+}
+
+@each $align in (left, center, right) {
+  .text-#{$align} {
+    text-align: $align !important;
+  }
+}
+
+.text-uppercase { text-transform: uppercase !important; }
+.text-italic { font-style: italic !important; }
+.font-heading { font-family: var(--em-font-heading) !important; }
+.font-mono { font-family: var(--em-font-mono) !important; }

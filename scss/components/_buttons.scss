@@ -1,0 +1,76 @@
+// ==========================================================================
+// Ember CSS — Buttons
+// Native <button> and submit/reset inputs are themed automatically.
+// Add .btn-* classes for other colors, outline style and sizes.
+// ==========================================================================
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+
+$button-selectors: "button, .btn, input[type='submit'], input[type='reset'], input[type='button']";
+$button-variants: (secondary, accent, success, warning, danger, dark);
+
+#{$button-selectors} {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: to-rem(10px) to-rem(20px);
+  border: 2px solid var(--em-primary);
+  border-radius: var(--em-radius);
+  background-color: var(--em-primary);
+  color: var(--em-white);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--em-transition), border-color var(--em-transition), transform var(--em-transition), box-shadow var(--em-transition);
+
+  &:hover {
+    background-color: shade(var(--em-primary));
+    border-color: shade(var(--em-primary));
+    color: var(--em-white);
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &:disabled,
+  &.disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+// ---- Color variants (generated with @each + mixin) -------------------------
+@each $variant in $button-variants {
+  .btn-#{$variant} {
+    @include button-variant(var(--em-#{$variant}));
+  }
+}
+
+// ---- Outline & sizes ------------------------------------------------------
+input.btn-outline,
+.btn-outline {
+  background-color: transparent;
+  color: var(--btn-color, var(--em-primary));
+
+  &:hover {
+    background-color: var(--btn-color, var(--em-primary));
+    color: var(--em-white);
+  }
+}
+
+.btn-sm {
+  padding: to-rem(6px) to-rem(12px);
+  font-size: to-rem(14px);
+}
+
+.btn-lg {
+  padding: to-rem(14px) to-rem(28px);
+  font-size: to-rem(18px);
+}

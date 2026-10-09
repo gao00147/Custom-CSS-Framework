@@ -1,0 +1,24 @@
+// ==========================================================================
+// Ember CSS v1.0.0 — main entry file
+// Compile:  sass scss/ember.scss dist/ember.css
+// ==========================================================================
+
+// 1. Abstracts — variables and CSS custom properties
+// (forwarded so you can configure them: @use "ember" with ($color-primary: teal);)
+@forward "abstracts/variables";
+@use "abstracts/root";
+
+// 2. Base — reset and element typography
+@use "base/reset";
+@use "base/typography";
+
+// 3. Components — themed HTML elements
+@use "components/buttons";
+@use "components/forms";
+@use "components/tables";
+
+// 4. Utilities — loaded last so they win over element styles
+@use "utilities/borders";   // before colors so .border-{color} can recolor .border
+@use "utilities/colors";
+@use "utilities/typography" as type-utils;
+@use "utilities/spacing";

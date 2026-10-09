@@ -1,0 +1,43 @@
+// ==========================================================================
+// Ember CSS — Spacing utilities (generated from the $spacers map)
+//   Property:  m = margin, p = padding
+//   Side:      (none) all, t top, b bottom, s start/left, e end/right,
+//              x left+right, y top+bottom
+//   Size:      0 1 2 3 4 5 (and auto for margin only)
+//   Examples:  .m-3  .mt-2  .px-4  .my-auto
+// ==========================================================================
+@use "../abstracts/variables" as *;
+
+$spacing-properties: (
+  "m": margin,
+  "p": padding
+);
+
+$spacing-sides: (
+  "":  null,
+  "t": (top),
+  "b": (bottom),
+  "s": (left),
+  "e": (right),
+  "x": (left, right),
+  "y": (top, bottom)
+);
+
+@each $abbr, $property in $spacing-properties {
+  @each $side, $directions in $spacing-sides {
+    @each $size, $value in $spacers {
+      // "auto" only makes sense for margin
+      @if not ($property == padding and $value == auto) {
+        .#{$abbr}#{$side}-#{$size} {
+          @if $directions == null {
+            #{$property}: $value !important;
+          } @else {
+            @each $direction in $directions {
+              #{$property}-#{$direction}: $value !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

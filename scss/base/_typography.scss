@@ -1,0 +1,176 @@
+// ==========================================================================
+// Ember CSS — Typography: headings, text, links, lists, quotes, code
+// ==========================================================================
+@use "sass:map";
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// ---- Headings ------------------------------------------------------------
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 calc(var(--em-spacer) * 0.75);
+  font-family: var(--em-font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--em-secondary);
+}
+
+// Sizes come from the $heading-sizes map
+@each $level, $size in $heading-sizes {
+  h#{$level} {
+    font-size: $size;
+  }
+}
+
+h1 {
+  letter-spacing: -0.02em;
+
+  // Signature ember underline under the main title
+  &::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 4px;
+    margin-top: calc(var(--em-spacer) * 0.5);
+    border-radius: 2px;
+    background-color: var(--em-primary);
+  }
+}
+
+h5 {
+  @include eyebrow(map.get($heading-sizes, 5));
+}
+
+h6 {
+  @include eyebrow(map.get($heading-sizes, 6), 0.08em);
+  color: var(--em-muted);
+}
+
+// ---- Text ----------------------------------------------------------------
+p {
+  margin: 0 0 var(--em-spacer);
+}
+
+a {
+  color: var(--em-primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: color var(--em-transition);
+
+  &:hover,
+  &:focus {
+    color: var(--em-secondary);
+  }
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+small {
+  font-size: 0.875rem;
+  color: var(--em-muted);
+}
+
+mark {
+  padding: 0 0.25em;
+  border-radius: 3px;
+  background-color: var(--em-accent);
+  color: var(--em-dark);
+}
+
+hr {
+  margin: calc(var(--em-spacer) * 2) 0;
+  border: 0;
+  border-top: 2px solid var(--em-border-color);
+}
+
+// ---- Lists ---------------------------------------------------------------
+ul,
+ol {
+  margin: 0 0 var(--em-spacer);
+  padding-left: calc(var(--em-spacer) * 1.5);
+}
+
+li {
+  margin-bottom: calc(var(--em-spacer) * 0.25);
+}
+
+ul li::marker {
+  color: var(--em-primary);
+}
+
+ol li::marker {
+  color: var(--em-primary);
+  font-weight: 700;
+}
+
+dl {
+  margin: 0 0 var(--em-spacer);
+}
+
+dt {
+  font-weight: 700;
+  color: var(--em-secondary);
+}
+
+dd {
+  margin: 0 0 calc(var(--em-spacer) * 0.5);
+  padding-left: var(--em-spacer);
+  border-left: 3px solid var(--em-border-color);
+}
+
+// ---- Quotes & code -------------------------------------------------------
+blockquote {
+  margin: 0 0 var(--em-spacer);
+  padding: var(--em-spacer) calc(var(--em-spacer) * 1.25);
+  border-left: 4px solid var(--em-primary);
+  border-radius: 0 var(--em-radius) var(--em-radius) 0;
+  background-color: var(--em-white);
+  font-family: var(--em-font-heading);
+  font-size: 1.125rem;
+  font-style: italic;
+}
+
+code,
+kbd,
+pre {
+  font-family: var(--em-font-mono);
+  font-size: 0.875em;
+}
+
+code {
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  background-color: var(--em-border-color);
+  color: var(--em-primary);
+}
+
+kbd {
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  background-color: var(--em-dark);
+  color: var(--em-white);
+}
+
+pre {
+  margin: 0 0 var(--em-spacer);
+  padding: var(--em-spacer);
+  overflow-x: auto;
+  border-radius: var(--em-radius);
+  background-color: var(--em-dark);
+  color: var(--em-light);
+
+  code {
+    padding: 0;
+    background: none;
+    color: inherit;
+  }
+}

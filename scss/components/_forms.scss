@@ -1,0 +1,104 @@
+// ==========================================================================
+// Ember CSS — Forms: labels, inputs, selects, textareas, checks, fieldsets
+// ==========================================================================
+@use "../abstracts/mixins" as *;
+
+// Every text-like input (email, password, number, date...)
+$text-inputs: 'input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="reset"]):not([type="button"]):not([type="range"]):not([type="color"])';
+
+form {
+  margin: 0 0 var(--em-spacer);
+}
+
+label {
+  display: block;
+  margin-bottom: calc(var(--em-spacer) * 0.375);
+  font-weight: 600;
+  color: var(--em-secondary);
+}
+
+#{$text-inputs},
+select,
+textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--em-spacer);
+  padding: 0.625rem 0.875rem;
+  border: 2px solid var(--em-border-color);
+  border-radius: var(--em-radius);
+  background-color: var(--em-white);
+  color: var(--em-dark);
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.4;
+  transition: border-color var(--em-transition), box-shadow var(--em-transition);
+
+  &:focus {
+    @include focus-ring(var(--em-primary), 25%);
+    border-color: var(--em-primary);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--em-light);
+  }
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--em-muted);
+}
+
+textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"] {
+  accent-color: var(--em-primary);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0 0.5rem 0 0;
+  vertical-align: -0.15em;
+}
+
+// Use <label class="check"><input type="checkbox"> Text</label> for inline checks
+label {
+  &.check {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    color: var(--em-dark);
+    cursor: pointer;
+  }
+}
+
+fieldset {
+  margin: 0 0 var(--em-spacer);
+  padding: var(--em-spacer) calc(var(--em-spacer) * 1.25);
+  border: 2px solid var(--em-border-color);
+  border-radius: var(--em-radius);
+  background-color: var(--em-white);
+}
+
+legend {
+  padding: 0 0.5rem;
+  font-family: var(--em-font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--em-primary);
+}
+
+// Validation states (generated with @each)
+@each $state, $color in (valid: success, invalid: danger) {
+  .is-#{$state} {
+    border-color: var(--em-#{$color}) !important;
+  }
+}

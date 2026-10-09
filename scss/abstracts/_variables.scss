@@ -1,0 +1,85 @@
+// ==========================================================================
+// Ember CSS — Variables
+// Every value below uses !default, so you can override it BEFORE the
+// framework is loaded:  @use "ember" with ($color-primary: #0b7285);
+// ==========================================================================
+
+// ---- Colors --------------------------------------------------------------
+$color-primary:   #d9480f !default; // ember orange
+$color-secondary: #1f3a5f !default; // deep navy
+$color-accent:    #f2a541 !default; // warm amber
+$color-success:   #2f9e44 !default;
+$color-warning:   #e8a317 !default;
+$color-danger:    #c92a2a !default;
+$color-light:     #f8f5f2 !default;
+$color-dark:      #1c1917 !default;
+$color-white:     #ffffff !default;
+$color-muted:     #78716c !default;
+$color-border:    #e7e1db !default;
+
+// Map used to generate the color utilities (.text-*, .bg-*, .border-*)
+$theme-colors: (
+  "primary":   $color-primary,
+  "secondary": $color-secondary,
+  "accent":    $color-accent,
+  "success":   $color-success,
+  "warning":   $color-warning,
+  "danger":    $color-danger,
+  "light":     $color-light,
+  "dark":      $color-dark,
+  "white":     $color-white,
+  "muted":     $color-muted
+) !default;
+
+// ---- Typography ----------------------------------------------------------
+$font-family-base:    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$font-family-heading: Georgia, "Times New Roman", serif !default;
+$font-family-mono:    ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !default;
+$font-size-base:      1rem !default;
+$line-height-base:    1.6 !default;
+
+// Heading sizes (h1 to h6), applied with an @each loop
+$heading-sizes: (
+  1: 2.75rem,
+  2: 2rem,
+  3: 1.5rem,
+  4: 1.25rem,
+  5: 1rem,
+  6: 0.875rem
+) !default;
+
+$font-sizes: (
+  "xs":  0.75rem,
+  "sm":  0.875rem,
+  "md":  1rem,
+  "lg":  1.25rem,
+  "xl":  1.5rem,
+  "2xl": 2rem,
+  "3xl": 2.75rem
+) !default;
+
+$font-weights: (
+  "light":    300,
+  "normal":   400,
+  "medium":   500,
+  "semibold": 600,
+  "bold":     700
+) !default;
+
+// ---- Spacing -------------------------------------------------------------
+$spacer: 1rem !default;
+
+$spacers: (
+  "0": 0,
+  "1": $spacer * 0.25,
+  "2": $spacer * 0.5,
+  "3": $spacer,
+  "4": $spacer * 1.5,
+  "5": $spacer * 3,
+  "auto": auto
+) !default;
+
+// ---- Borders & motion ----------------------------------------------------
+$border-width:  1px !default;
+$border-radius: 0.5rem !default;
+$transition:    0.2s ease !default;

@@ -1,0 +1,21 @@
+// ==========================================================================
+// Ember CSS — Functions (SassScript)
+// ==========================================================================
+@use "sass:math";
+@use "sass:string";
+
+// Convert a pixel value to rem.   to-rem(24px) => 1.5rem
+@function to-rem($px, $base: 16px) {
+  @return math.div($px, $base) * 1rem;
+}
+
+// Darken any color (even a CSS variable) by mixing it with black.
+// shade(var(--em-primary))  => color-mix(in srgb, var(--em-primary) 85%, black)
+@function shade($color, $amount: 15%) {
+  @return string.unquote("color-mix(in srgb, #{$color} #{100% - $amount}, black)");
+}
+
+// Make any color see-through.   fade(var(--em-primary), 25%)
+@function fade($color, $opacity) {
+  @return string.unquote("color-mix(in srgb, #{$color} #{$opacity}, transparent)");
+}

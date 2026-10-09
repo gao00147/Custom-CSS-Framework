@@ -1,0 +1,26 @@
+// ==========================================================================
+// Ember CSS — Border utilities
+//   .border  .border-{side}  .border-0  .border-2  .rounded  .rounded-pill
+//   Combine with color utilities:  .border .border-primary
+// ==========================================================================
+@use "../abstracts/variables" as *;
+
+.border {
+  border: $border-width solid var(--em-border-color) !important;
+}
+
+@each $side in (top, bottom, left, right) {
+  .border-#{$side} {
+    border-#{$side}: $border-width solid var(--em-border-color) !important;
+  }
+}
+
+.border-0 { border: 0 !important; }
+.border-2 { border-width: 2px !important; }
+.border-4 { border-width: 4px !important; }
+
+.rounded-0 { border-radius: 0 !important; }
+.rounded { border-radius: var(--em-radius) !important; }
+.rounded-lg { border-radius: calc(var(--em-radius) * 2) !important; }
+.rounded-pill { border-radius: 999px !important; }
+.shadow { box-shadow: 0 4px 14px rgba(28, 25, 23, 0.1) !important; }

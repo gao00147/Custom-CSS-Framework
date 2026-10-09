@@ -1,0 +1,23 @@
+// ==========================================================================
+// Ember CSS — Color utilities (generated from the $theme-colors map)
+//   .text-{color}   .bg-{color}   .border-{color}
+// ==========================================================================
+@use "../abstracts/variables" as *;
+
+@each $name, $value in $theme-colors {
+  .text-#{$name} {
+    color: var(--em-#{$name}) !important;
+  }
+}
+
+@each $name, $value in $theme-colors {
+  .bg-#{$name} {
+    background-color: var(--em-#{$name}) !important;
+  }
+}
+
+@each $name, $value in $theme-colors {
+  .border-#{$name} {
+    border-color: var(--em-#{$name}) !important;
+  }
+}
