@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ember CSS — Demo</title>
+  <link rel="stylesheet" href="dist/ember.css">
+  <style>
+    /* Demo page layout only — not part of the framework */
+    .demo { max-width: 960px; margin: 0 auto; padding: 3rem 1.25rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; }
+    .row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+    section { margin-bottom: 3rem; }
+  </style>
+</head>
+<body>
+  <main class="demo">
+
+    <header class="mb-5">
+      <h1>Ember CSS</h1>
+      <p class="fs-lg text-muted">A warm, lightweight Sass framework that themes plain HTML and adds utility classes for color, type, spacing and borders.</p>
+      <div class="row">
+        <a class="btn" href="#buttons">See components</a>
+        <a class="btn btn-secondary btn-outline" href="#utilities">See utilities</a>
+      </div>
+    </header>
+
+    <!-- Typography -->
+    <section id="typography">
+      <h2>Typography</h2>
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+      <p>This is a paragraph with a <a href="#">link</a>, some <strong>bold text</strong>, <mark>highlighted text</mark>, inline <code>code</code>, a key <kbd>Ctrl</kbd> + <kbd>S</kbd> and <small>small print</small>.</p>
+      <blockquote>Good design is as little design as possible.</blockquote>
+      <pre><code>$color-primary: #d9480f;
+@use "ember" with ($color-primary: teal);</code></pre>
+      <hr>
+    </section>
+
+    <!-- Lists -->
+    <section id="lists">
+      <h2>Lists</h2>
+      <div class="grid">
+        <ul>
+          <li>Unordered item</li>
+          <li>Another item</li>
+          <li>Third item</li>
+        </ul>
+        <ol>
+          <li>First step</li>
+          <li>Second step</li>
+          <li>Third step</li>
+        </ol>
+        <dl>
+          <dt>Sass</dt>
+          <dd>A CSS pre-processor.</dd>
+          <dt>Partial</dt>
+          <dd>A Sass file starting with _</dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Buttons -->
+    <section id="buttons">
+      <h2>Buttons</h2>
+      <div class="row mb-3">
+        <button>Primary</button>
+        <button class="btn-secondary">Secondary</button>
+        <button class="btn-accent">Accent</button>
+        <button class="btn-success">Success</button>
+        <button class="btn-warning">Warning</button>
+        <button class="btn-danger">Danger</button>
+        <button class="btn-dark">Dark</button>
+      </div>
+      <div class="row mb-3">
+        <button class="btn-outline">Outline</button>
+        <button class="btn-secondary btn-outline">Secondary outline</button>
+        <button class="btn-danger btn-outline">Danger outline</button>
+        <button disabled>Disabled</button>
+      </div>
+      <div class="row">
+        <button class="btn-sm">Small</button>
+        <button>Default</button>
+        <button class="btn-lg">Large</button>
+        <a href="#" class="btn btn-success">Link as button</a>
+      </div>
+    </section>
+
+    <!-- Forms -->
+    <section id="forms">
+      <h2>Forms</h2>
+      <form>
+        <fieldset>
+          <legend>Contact us</legend>
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Jane Doe">
+
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="jane@example.com">
+
+          <label for="topic">Topic</label>
+          <select id="topic">
+            <option>General question</option>
+            <option>Feedback</option>
+          </select>
+
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Write your message..."></textarea>
+
+          <label class="check"><input type="checkbox" checked> Subscribe to updates</label>
+          <label class="check"><input type="radio" name="r" checked> Email me</label>
+          <label class="check mb-3"><input type="radio" name="r"> Call me</label>
+
+          <label for="ok">Valid / invalid states</label>
+          <input id="ok" type="text" class="is-valid" value="Looks good">
+          <input type="text" class="is-invalid" value="Something is wrong">
+
+          <div class="row">
+            <input type="submit" value="Send">
+            <input type="reset" value="Reset" class="btn-outline">
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- Tables -->
+    <section id="tables">
+      <h2>Tables</h2>
+      <table>
+        <caption>Framework partials and what they style</caption>
+        <thead>
+          <tr><th>Partial</th><th>Folder</th><th>Styles</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>_variables</td><td>abstracts</td><td>Colors, fonts, spacing maps</td></tr>
+          <tr><td>_typography</td><td>base</td><td>Headings, text, lists</td></tr>
+          <tr><td>_buttons</td><td>components</td><td>Buttons and variants</td></tr>
+          <tr><td>_forms</td><td>components</td><td>Inputs, selects, fieldsets</td></tr>
+          <tr><td>_spacing</td><td>utilities</td><td>Margin and padding classes</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td>Total</td><td>4 folders</td><td>14 partials</td></tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <!-- Utilities -->
+    <section id="utilities">
+      <h2>Utilities</h2>
+
+      <h4>Colors</h4>
+      <div class="grid mb-4">
+        <div class="bg-primary text-white p-3 rounded">.bg-primary</div>
+        <div class="bg-secondary text-white p-3 rounded">.bg-secondary</div>
+        <div class="bg-accent text-dark p-3 rounded">.bg-accent</div>
+        <div class="bg-success text-white p-3 rounded">.bg-success</div>
+        <div class="bg-danger text-white p-3 rounded">.bg-danger</div>
+        <div class="bg-white text-primary border p-3 rounded">.text-primary</div>
+      </div>
+
+      <h4>Font size &amp; weight</h4>
+      <p class="fs-xs mb-1">.fs-xs — extra small</p>
+      <p class="fs-sm mb-1">.fs-sm — small</p>
+      <p class="fs-lg mb-1">.fs-lg — large</p>
+      <p class="fs-2xl fw-light mb-1">.fs-2xl .fw-light</p>
+      <p class="fs-xl fw-bold text-secondary mb-4">.fs-xl .fw-bold .text-secondary</p>
+
+      <h4>Spacing &amp; borders</h4>
+      <div class="grid">
+        <div class="border border-primary border-2 rounded p-2">.p-2</div>
+        <div class="border border-secondary rounded-lg p-4">.p-4 .rounded-lg</div>
+        <div class="bg-white border-left border-4 border-accent px-3 py-2">.border-left .border-4</div>
+        <div class="bg-white shadow rounded-pill px-4 py-2 text-center">.rounded-pill</div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

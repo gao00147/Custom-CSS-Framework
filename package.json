@@ -1,0 +1,14 @@
+{
+  "name": "ember-css",
+  "version": "1.0.0",
+  "description": "A warm, lightweight Sass CSS framework that themes standard HTML elements and provides utility classes.",
+  "main": "dist/ember.css",
+  "scripts": {
+    "build": "sass scss/ember.scss dist/ember.css && sass scss/ember.scss dist/ember.min.css --style=compressed",
+    "watch": "sass --watch scss/ember.scss:dist/ember.css"
+  },
+  "devDependencies": {
+    "sass": "^1.80.0"
+  },
+  "license": "MIT"
+}
